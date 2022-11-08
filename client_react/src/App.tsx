@@ -1,9 +1,10 @@
 import React from 'react';
-import Products from './Products';
+import Products from './components/ProductsList/ProductsList';
+import './App.scss';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Products />
     </div>
   );
