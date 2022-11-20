@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react'
 import './ProductsList.scss';
 
+import Tabs from '../Tabs/Tabs';
+
 interface Product {
   id: number;
   name: string;
@@ -22,19 +24,24 @@ const Products = () => {
     }, []);
 
   return (
-    <>
-      {
-        products.map(({id, name, desc, img}: Product) => (
-          <div key={id} className="products__list">
-            <img src={img} className='products__list-image' alt='img' />
-            <div className="products__list-text">
-              <h3>{name}</h3>
-              <h5>{desc}</h5>
+    <div className="container">
+      <div className="main">
+        {
+          products.map(({id, name, desc, img}: Product) => (
+            <div key={id} className="product__card">
+              <img src={img} className='product__card-image' alt='img' />
+              <div className="product__card-text">
+                <strong className="sss">{name}</strong>
+                <small className="sss">{desc}</small>
+              </div>
             </div>
-          </div>
-        ))
-      }
-    </>
+          ))
+        }
+      </div>
+      <div className="sidebar">
+        <Tabs />
+      </div>
+    </div>
   )
 }
 
